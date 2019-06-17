@@ -42,11 +42,17 @@ Basically, are three options:
 If you dont set a --file or a --mask, you will play a small example with the default options.
 
 ## Game commands
+
 a -- left
+
 d -- right
+
 w -- up
+
 s -- down
+
 and:
+
 CTRL+C -- quit
 
 Only **AWSD** key inputs are allowed into the game curse screen.
