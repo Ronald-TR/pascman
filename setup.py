@@ -11,7 +11,7 @@ setuptools.setup(
     description="Eat every text that you want with this simpatic pacman! :D",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Ronald-TR/python-pacman",
+    url="https://github.com/Ronald-TR/pascman",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
