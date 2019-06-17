@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="python-pacman",
+    name="pascman",
     version="0.0.1",
     author="Ronald Rodrigues Farias",
     author_email="ronald-farias@outlook.com",
