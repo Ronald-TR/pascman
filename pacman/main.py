@@ -38,8 +38,8 @@ def get_pacman_infos(key, pos_x, pos_y, matriz):
     return pos_x, pos_y, pacman
 
 
-def draw_pacman(pacman, pos_x, pos_y, matriz):
-    poop = "-"
+def draw_pacman(pacman, pos_x, pos_y, matriz, mask):
+    poop = mask[pos_y][pos_x]
     # draw pacman in line
     _line = list(matriz[pos_y])
     _line[pos_x] = pacman
@@ -73,6 +73,7 @@ def main(win):
     wellcome_tips()
     win.addstr("Press any key to start\n\n")
     matriz = TEXT
+    mask = MASK
     while 1:
         try:
             key = win.getkey()
@@ -83,44 +84,49 @@ def main(win):
 
             pos_x, pos_y, pacman = get_pacman_infos(key, pos_x, pos_y, matriz)
             
-            # show tips message every on the top
+            # show tips messages every on the top
             wellcome_tips()
             
-            matriz, aux = draw_pacman(pacman, pos_x, pos_y, matriz)
+            matriz, aux = draw_pacman(pacman, pos_x, pos_y, matriz, mask)
             win.addstr(aux+'\n')
                 
         except curses.error:
-            # No input
+            # No input key
             pass
         except KeyboardInterrupt:
             sys.exit()
 
 
-def normalize_text(text: list):
+def normalize_text(text: list, filter_mask='-'):
     # clear breaklines in array of linetexts
     text = [i.replace('\n', '') for i in text]
     max_line_length = max([len(i) for i in text])
     for index, value in enumerate(text):
         _len = len(value)
         if _len < max_line_length:
-            text[index] += " " * int(max_line_length - _len)  
-    return text
+            text[index] += " " * int(max_line_length - _len)
+    
+    mask = [filter_mask * max_line_length for _ in text]
+    return text, mask
 
 
 if __name__ == '__main__':
     line = "+++++++++++++++++"
     text_default = [line for _ in range(5)]
     try:
+        filter_mask='*FUCK*OFF*'
         path = sys.argv[1]
         if not os.path.isfile(path):
             print("File not found")
             sys.exit()
 
         with open(path, 'r') as _file:
-            TEXT = normalize_text(_file.readlines())
-            
+            TEXT, MASK = normalize_text(_file.readlines(), filter_mask=filter_mask)
+
     except IndexError:
         TEXT = text_default
+        MASK = [filter_mask * len(i) for i in TEXT]
+    
     curses.initscr()
     curses.start_color()
     curses.wrapper(main)
