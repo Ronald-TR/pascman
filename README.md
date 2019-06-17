@@ -38,7 +38,9 @@ optional arguments:
 Basically, are three options: 
 
 `--file <path to a text file>`
+
 `--aggressive or just -g <displays *FUCK*OFF*> in pacman trace`
+
 `--mask <here, you set the trace, be creative>`
 
 If you dont set a --file or a --mask, you will play a small example with the default options.
