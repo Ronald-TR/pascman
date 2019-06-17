@@ -2,6 +2,7 @@ import os
 import sys
 import curses
 
+
 def get_pacman_infos(key, pos_x, pos_y, matriz):
     pacman = ""
     pacman_right = lambda x: "ᗧ" if x % 2 == 0 else "⚇"
@@ -111,19 +112,34 @@ def normalize_text(text: list, filter_mask='-'):
 
 
 if __name__ == '__main__':
-    line = "+++++++++++++++++"
-    text_default = [line for _ in range(5)]
-    try:
+    import argparse
+    parser = argparse.ArgumentParser(description='Eat every text with pycman!! :D')
+    parser.add_argument('--file', '-f', nargs='?', type=str, default=None, help="path to a file")
+    parser.add_argument('--aggressive', '-g', action='store_true', default=False, help="just an alias for --mask=*FUCK*OFF*")
+    parser.add_argument('--mask', '-m', nargs='?', type=str, default='-', help="trace that pacman will be leave")
+    args = parser.parse_args()
+    
+    path = args.file
+    
+    if args.aggressive:
         filter_mask='*FUCK*OFF*'
-        path = sys.argv[1]
+    else:
+        filter_mask = args.mask
+
+    line_default = "+++++++++++++++++"
+    text_default = [line_default for _ in range(5)]
+    try:
+        if not path:
+            raise ValueError()
+
         if not os.path.isfile(path):
-            print("File not found")
+            print("Oh no, file not found :(")
             sys.exit()
 
         with open(path, 'r') as _file:
             TEXT, MASK = normalize_text(_file.readlines(), filter_mask=filter_mask)
 
-    except IndexError:
+    except ValueError:
         TEXT = text_default
         MASK = [filter_mask * len(i) for i in TEXT]
     
