@@ -5,7 +5,7 @@ Using the native Python Curses library to create a simple plain text pacman that
 
 ## Installation
 
-`pip install python-pacman`
+`pip install pascman`
 
 and that's all! :snake:
 
