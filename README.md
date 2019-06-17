@@ -4,7 +4,7 @@
 
 Using the native Python Curses library to create a simple plain text pacman that eat every text that you want :D
 
-![pascman-example](https://github.com/Ronald-TR/pascman/docs/pascman.gif)
+![pascman-example](https://github.com/Ronald-TR/pascman/blob/master/docs/pascman.gif)
 
 
 ## Installation
