@@ -10,10 +10,14 @@ Using the native Python Curses library to create a simple plain text pacman that
 and that's all! :snake:
 
 ## Usage commands
-Type --help and you will see all the commands
+On terminal:
+
+    python -m pascman <flags|args> (optional)
+
+Type --help and you will see all the commands descriptions
 ```bash
 
-python pacman/main.py --help                                       
+python -m pascman --help                                       
 
 usage: main.py [-h] [--file [FILE]] [--aggressive] [--mask [MASK]]
 
