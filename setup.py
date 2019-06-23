@@ -19,6 +19,6 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     entry_points = {
-        'console_scripts': ['pascman=pascman.main:main'],
+        'console_scripts': ['pascman=pascman.__main__:run'],
     }
 )
