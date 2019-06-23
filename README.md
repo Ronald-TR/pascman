@@ -17,12 +17,13 @@ and that's all! :snake:
 ## Usage commands
 On terminal:
 
-    python -m pascman <flags|args> (optional)
+    pascman <flags|args> (optional) # or 
+    python -m pascman <flags|args>
 
 Type --help and you will see all the commands descriptions
 ```bash
 
-python -m pascman --help                                       
+pascman --help                                       
 
 usage: main.py [-h] [--file [FILE]] [--aggressive] [--mask [MASK]]
 
