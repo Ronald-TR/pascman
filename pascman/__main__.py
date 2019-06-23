@@ -57,7 +57,7 @@ def draw_pacman(pacman, pos_x, pos_y, matriz, mask):
     return matriz, aux
 
 
-def main(win):
+def main(win, matriz, mask):
     pos_x = 0
     pos_y = 0
 
@@ -72,9 +72,7 @@ def main(win):
     win.clear()
     wellcome_tips()
     win.addstr("Press any key to start\n\n")
-    matriz = TEXT
-    mask = MASK
-    while 1:
+    while True:
         try:
             key = win.getkey()
             if not key in "asdw":
@@ -110,9 +108,9 @@ def normalize_text(text: list, filter_mask="-"):
     return text, mask
 
 
-if __name__ == "__main__":
+def run():
     import argparse
-
+    
     parser = argparse.ArgumentParser(description="Eat every text with pycman!! :D")
     parser.add_argument(
         "--file", "-f", nargs="?", type=str, default=None, help="path to a file"
@@ -160,4 +158,9 @@ if __name__ == "__main__":
 
     curses.initscr()
     curses.start_color()
-    curses.wrapper(main)
+    curses.wrapper(main, TEXT, MASK)
+
+
+if __name__ == "__main__":
+    run()
+
