@@ -110,7 +110,7 @@ def normalize_text(text: list, filter_mask="-"):
 
 def run():
     import argparse
-    
+
     parser = argparse.ArgumentParser(description="Eat every text with pycman!! :D")
     parser.add_argument(
         "--file", "-f", nargs="?", type=str, default=None, help="path to a file"
@@ -163,4 +163,3 @@ def run():
 
 if __name__ == "__main__":
     run()
-
