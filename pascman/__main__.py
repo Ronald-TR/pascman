@@ -1,11 +1,10 @@
 import os
 import sys
 import curses
-from colorama import Fore
 
 
 def get_pacman_infos(key, pos_x, pos_y, matriz):
-    pacman = Fore.YELLOW+""
+    pacman = ""
     pacman_right = lambda x: "ᗧ" if x % 2 == 0 else "⚇"
     pacman_left = lambda x: "ᗤ" if x % 2 == 0 else "⚇"
     pacman_down = lambda x: "ᗣ" if x % 2 == 0 else "⚇"
@@ -69,6 +68,7 @@ def main(win, matriz, mask):
     curses.init_pair(2, curses.COLOR_BLUE, -1)
     curses.init_pair(3, curses.COLOR_RED, -1)
     curses.init_pair(4, curses.COLOR_GREEN, -1)
+
     def wellcome_tips():
         win.addstr("Wellcome to simple PACMAN simulator\n", curses.color_pair(1))
         win.addstr('"a" - left\n"d" - right\n', curses.color_pair(2))
