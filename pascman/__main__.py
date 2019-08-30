@@ -1,10 +1,11 @@
 import os
 import sys
 import curses
+from colorama import Fore
 
 
 def get_pacman_infos(key, pos_x, pos_y, matriz):
-    pacman = ""
+    pacman = Fore.YELLOW+""
     pacman_right = lambda x: "ᗧ" if x % 2 == 0 else "⚇"
     pacman_left = lambda x: "ᗤ" if x % 2 == 0 else "⚇"
     pacman_down = lambda x: "ᗣ" if x % 2 == 0 else "⚇"
@@ -60,18 +61,25 @@ def draw_pacman(pacman, pos_x, pos_y, matriz, mask):
 def main(win, matriz, mask):
     pos_x = 0
     pos_y = 0
-
+    # YELLOW 1
+    # BLUE 2
+    # RED 3
+    # GREEN 4
+    curses.init_pair(1, curses.COLOR_YELLOW, -1)
+    curses.init_pair(2, curses.COLOR_BLUE, -1)
+    curses.init_pair(3, curses.COLOR_RED, -1)
+    curses.init_pair(4, curses.COLOR_GREEN, -1)
     def wellcome_tips():
-        win.addstr("Wellcome to simple PACMAN simulator\n")
-        win.addstr('"a" - left\n"d" - right\n')
-        win.addstr('"w" - up\n"s" - down\n')
-        win.addstr("CTRL+C - quit\n\n")
+        win.addstr("Wellcome to simple PACMAN simulator\n", curses.color_pair(1))
+        win.addstr('"a" - left\n"d" - right\n', curses.color_pair(2))
+        win.addstr('"w" - up\n"s" - down\n', curses.color_pair(2))
+        win.addstr("CTRL+C - quit\n\n", curses.color_pair(3))
 
     win.nodelay(True)
     key = ""
     win.clear()
     wellcome_tips()
-    win.addstr("Press any key to start\n\n")
+    win.addstr("Press any key to start\n\n", curses.A_BLINK)
     while True:
         try:
             key = win.getkey()
@@ -158,6 +166,7 @@ def run():
 
     curses.initscr()
     curses.start_color()
+    curses.use_default_colors()
     curses.wrapper(main, TEXT, MASK)
 
 
