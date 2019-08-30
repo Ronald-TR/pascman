@@ -7,6 +7,7 @@ Using the native Python Curses library to create a simple plain text pacman that
 ![pascman-example](https://github.com/Ronald-TR/pascman/blob/master/docs/pascman-v1.gif)
 
 **Now has colors**
+
 ![pascman-example](https://github.com/Ronald-TR/pascman/blob/master/docs/pascman.gif)
 
 *No external dependencies, just **python native code*** :snake:
