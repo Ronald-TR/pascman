@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pascman",
-    version="0.0.4",
+    version="0.0.5",
     author="Ronald Rodrigues Farias",
     author_email="ronald-farias@outlook.com",
     description="Eat every text that you want with this simpatic pacman! :D",

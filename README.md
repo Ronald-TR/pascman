@@ -1,6 +1,6 @@
 # PASCMAN ᗧ ⚇
 
-![version](https://img.shields.io/badge/pascman-v0.0.3-brightgreen.svg)
+![version](https://img.shields.io/badge/pascman-v0.0.5-brightgreen.svg)
 
 Using the native Python Curses library to create a simple plain text pacman that eat every text that you want :D
 
